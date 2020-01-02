@@ -9,9 +9,20 @@ class App extends React.Component {
         super();
 
         this.state = {
-            todo: ""
+            todo: "",
+            todos: []
         };
     }
+    componentDidMount(){
+        fetch("http://localhost:5000/todos")
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                todos: data
+            })
+        })
+    }
+
 
     addTodo = e => {
         e.preventDefault();
@@ -25,7 +36,7 @@ class App extends React.Component {
     }
 
     render(){
-        console.log(this.state.todo)
+        console.log(this.state.todos)
         return (
             <div className="app">
                 <h1>ToDo List</h1>
