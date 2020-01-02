@@ -2,6 +2,8 @@ import React from "react";
 import ReactDom from "react-dom"
 import "./styles.css";
 
+import TodoItem from "./todo-item.js"
+
 
 
 class App extends React.Component {
@@ -35,6 +37,14 @@ class App extends React.Component {
         })
     }
 
+    renderTodos = () => {
+        return this.state.todos.map(item => {
+            return (
+                <TodoItem item={item} />
+            )
+        })
+    }
+
     render(){
         console.log(this.state.todos)
         return (
@@ -52,6 +62,7 @@ class App extends React.Component {
                         add
                     </button>
                 </form>
+                {this.renderTodos()}
             </div>
         )
     }
