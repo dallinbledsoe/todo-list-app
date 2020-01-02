@@ -7,9 +7,12 @@ class TodoItem extends Component {
 
 
     render() {
+        console.log(this.props.item)
         return (
             <div className="todo-item">
-                <h1>Hi im todo stankboi</h1>
+               <input type="checkbox" />
+               <p>{this.props.item.title}</p>
+               
             </div>
         )
     }

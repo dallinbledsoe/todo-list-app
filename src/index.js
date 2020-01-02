@@ -39,9 +39,7 @@ class App extends React.Component {
 
     renderTodos = () => {
         return this.state.todos.map(item => {
-            return (
-                <TodoItem item={item} />
-            )
+            return <TodoItem key={item.id} item={item} />
         })
     }
 
